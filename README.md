@@ -3,7 +3,7 @@
 Dashboard conectado ao Google Sheets para controle financeiro pessoal.
 
 ## 🚀 Demo
-[Ver Dashboard](https:/progamoura-rgb.github.io/dashboard-financeiro/)
+[Ver Dashboard](https:/progamoura-rgb.github.io/dashboard-financeiro)
 
 ## ⚙️ Configuração
 1. Obtenha uma API Key do Google Cloud Console
