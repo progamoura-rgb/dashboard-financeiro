@@ -323,6 +323,26 @@
             
             document.getElementById('saldoPrevisto').textContent = formatCurrency(saldoPrevisto);
             document.getElementById('saldoPrevisto').className = `text-3xl font-bold ${saldoPrevisto >= 0 ? 'text-blue-600' : 'text-orange-600'}`;
+
+            // Debug: mostrar informações no console
+            console.log('=== DEBUG CÁLCULOS ===');
+            console.log('Realizados - Total registros:', realizadoData.length);
+            console.log('Realizados - Receitas encontradas:', realizadoData.filter(t => {
+                const isReceita = t.categoria?.toLowerCase().includes('receita') || 
+                                 t.kpi?.toLowerCase().includes('receita') ||
+                                 t.idContaN1?.startsWith('3') || 
+                                 (t.valor > 0 && !t.categoria?.toLowerCase().includes('despesa'));
+                return isReceita;
+            }).length);
+            console.log('Realizados - Despesas encontradas:', realizadoData.filter(t => {
+                const isDespesa = t.categoria?.toLowerCase().includes('despesa') || 
+                                 t.kpi?.toLowerCase().includes('despesa') ||
+                                 t.idContaN1?.startsWith('4') || t.idContaN1?.startsWith('5') ||
+                                 (t.valor < 0) ||
+                                 (!t.categoria?.toLowerCase().includes('receita') && t.valor > 0 && t.categoria?.toLowerCase().includes('despesa'));
+                return isDespesa;
+            }).length);
+            console.log('======================');
         }
 
         // Atualizar interface
